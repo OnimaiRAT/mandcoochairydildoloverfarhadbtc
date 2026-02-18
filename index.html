@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MAND DILDO LEAKS • VIP ACCESS 404</title>
+  <title>Mandox • VIP ACCESS 404</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0d0015;
-      --accent: #ff00aa;
-      --accent-glow: #ff00aa88;
-      --text: #e0f0ff;
-      --text-dim: #a0c0ff;
-      --card: rgba(20, 10, 40, 0.65);
-      --border: rgba(255, 0, 170, 0.25);
+      --bg: #000000;
+      --nav-bg: #0d0d0d;
+      --text: #ffffff;
+      --text-dim: #bbbbbb;
+      --border: #222222;
+      --border-active: #444444;
+      --hover: #1a1a1a;
+      --card: #0f0f0f;
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
@@ -23,241 +24,311 @@
       color: var(--text);
       font-family: 'Roboto Mono', monospace;
       min-height: 100vh;
-      background-image:
-        radial-gradient(circle at 15% 50%, #ff00aa22 0%, transparent 25%),
-        radial-gradient(circle at 85% 30%, #00ffff22 0%, transparent 35%);
-      overflow-x: hidden;
+      overflow: hidden;
     }
-    h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(2.8rem, 9vw, 6.5rem);
+    .warning-screen {
+      position: fixed;
+      inset: 0;
+      background: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
       text-align: center;
-      margin: 60px 20px 20px;
-      background: linear-gradient(90deg, #ff00aa, #00ffff, #ff00aa);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-shadow: 0 0 30px #ff00aa88, 0 0 60px #00ffff44;
+      padding: 20px;
+    }
+    .warning-logo {
+      width: 180px;
+      height: 180px;
+      margin-bottom: 2rem;
+      object-fit: contain;
+      border: 2px solid #333;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+    }
+    .warning-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(2rem, 8vw, 4.5rem);
+      color: #fff;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
       letter-spacing: 4px;
-      animation: glitch 4s infinite alternate;
+    }
+    .warning-text {
+      font-size: 1.4rem;
+      max-width: 700px;
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+      color: #ccc;
+    }
+    .warning-btn {
+      padding: 14px 40px;
+      font-size: 1.3rem;
+      font-family: 'Orbitron', sans-serif;
+      background: #111;
+      color: #fff;
+      border: 2px solid #444;
+      border-radius: 0;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .warning-btn:hover {
+      background: #222;
+      border-color: #666;
+      transform: scale(1.05);
+    }
+    .main-content {
+      display: none;
+    }
+    .top-nav {
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      white-space: nowrap;
+      overflow-x: auto;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: stretch;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .brand {
+      background: #111111;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border-active);
+      padding: 8px 24px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+      border-radius: 4px;
     }
     .tabs {
       display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin: 40px 20px;
-      flex-wrap: wrap;
+      flex: 1;
     }
     .tab {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      padding: 1rem 2.5rem;
-      border: 2px solid var(--accent);
-      border-radius: 999px;
-      background: var(--card);
-      backdrop-filter: blur(10px);
+      padding: 12px 22px;
       color: var(--text-dim);
+      font-size: 0.95rem;
+      font-weight: 500;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--nav-bg);
       cursor: pointer;
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 0 0 4px var(--accent-glow);
-      position: relative;
-      overflow: hidden;
-      letter-spacing: 2px;
+      transition: all 0.15s;
+      display: flex;
+      align-items: center;
     }
-    .tab::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
-      transform: translateX(-100%);
-      transition: transform 0.6s;
-    }
-    .tab:hover::before { transform: translateX(100%); }
-    .tab:hover,
+    .tab:hover { background: var(--hover); color: white; }
     .tab.active {
+      background: #111111;
       color: white;
-      box-shadow: 0 0 40px var(--accent-glow), inset 0 0 20px var(--accent-glow);
-      transform: translateY(-6px) scale(1.05);
-      border-color: #00ffff;
-    }
-    .tab.active {
-      background: linear-gradient(145deg, rgba(255,0,170,0.25), rgba(0,255,255,0.15));
+      border-bottom: 1px solid #555555;
+      font-weight: 700;
     }
     .content {
-      max-width: 1200px;
-      margin: 0 auto 80px;
-      padding: 3rem 2rem;
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 30px;
       background: var(--card);
-      backdrop-filter: blur(12px);
       border: 1px solid var(--border);
-      border-radius: 24px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.6), inset 0 0 40px rgba(255,0,170,0.08);
-      min-height: 500px;
-      position: relative;
-      overflow: hidden;
+      border-radius: 4px;
+      min-height: 60vh;
     }
     .emoji-bomb {
-      font-size: 6rem;
+      font-size: 4rem;
       text-align: center;
-      margin: 2rem 0 1.5rem;
-      filter: drop-shadow(0 0 20px #ff00aa);
-      animation: pulse 3s infinite alternate;
-    }
-    @keyframes pulse {
-      from { transform: scale(0.92); opacity: 0.8; }
-      to { transform: scale(1.08); opacity: 1; }
+      margin: 1.5rem 0;
     }
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-      margin: 2.5rem 0;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
     }
     .gallery-item {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--accent-glow);
-      border-radius: 16px;
+      background: #0a0a0a;
+      border: 1px solid var(--border);
+      border-radius: 4px;
       overflow: hidden;
-      transition: all 0.35s;
       position: relative;
+      aspect-ratio: 1 / 1;
+      height: 0;
+      padding-bottom: 100%;
     }
-    .gallery-item:hover {
-      transform: translateY(-12px) scale(1.04);
-      box-shadow: 0 25px 60px rgba(255,0,170,0.45);
-      border-color: #00ffff;
+    .gallery-item .img-wrapper {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
     }
     .gallery-item img {
       width: 100%;
-      height: auto;
-      display: block;
+      height: 100%;
       object-fit: cover;
+      display: block;
     }
     .content p, .content ul {
-      font-size: 1.4rem;
-      line-height: 1.7;
-      margin: 1.5rem 0;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      margin: 1.2rem 0;
       color: var(--text-dim);
     }
     .content li {
-      margin: 1rem 0;
-      padding-left: 1.8rem;
+      margin: 0.8rem 0;
+      padding-left: 1.4rem;
       position: relative;
     }
     .content li::before {
       content: "→";
-      color: var(--accent);
+      color: white;
       position: absolute;
       left: 0;
-      font-weight: bold;
     }
     .big-lenny {
-      font-size: 9rem;
+      font-size: 6rem;
       text-align: center;
-      margin: 3rem 0;
-      filter: drop-shadow(0 0 30px #00ffff88);
+      margin: 2rem 0;
+      color: white;
     }
     .footer-joke {
       text-align: center;
-      font-size: 1.1rem;
-      color: #666;
-      margin: 4rem 0 2rem;
-      opacity: 0.6;
+      font-size: 0.9rem;
+      color: #555555;
+      margin: 3rem 0 2rem;
     }
-    @keyframes glitch {
-      0%, 100% { text-shadow: 2px 0 #00ffff, -2px 0 #ff00aa; }
-      10% { text-shadow: -2px 0 #00ffff, 2px 0 #ff00aa; transform: skew(2deg); }
-      20% { transform: skew(-2deg); }
-    }
-    @media (max-width: 600px) {
-      .tabs { flex-direction: column; align-items: center; gap: 1rem; }
-      .tab { width: 90%; text-align: center; }
-      h1 { margin: 40px 10px 20px; font-size: 3.8rem; }
-      .gallery { grid-template-columns: 1fr; gap: 1.5rem; }
-    }
-
-    /* Hidden audio player */
     #bg-audio {
       position: fixed;
-      bottom: 10px;
-      right: 10px;
-      opacity: 0.3;
-      z-index: 9999;
+      bottom: 15px;
+      right: 15px;
+      opacity: 0.4;
+      z-index: 999;
+    }
+    @media (max-width: 800px) {
+      .nav-inner { flex-wrap: wrap; }
+      .brand {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        width: 100%;
+        justify-content: center;
+        padding: 10px;
+      }
+      .tabs { width: 100%; }
+      .tab {
+        flex: 1;
+        text-align: center;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .tab:last-child { border-bottom: none; }
+      .warning-logo { width: 140px; height: 140px; }
     }
   </style>
 </head>
 <body>
 
-<audio id="bg-audio" autoplay loop>
-  <source src="mand.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-
-<h1>MAND DILDO LEAKS<br>ULTRA VIP DROP</h1>
-<div class="tabs">
-  <div class="tab active" data-tab="mand">MAND DILDO PICS</div>
-  <div class="tab" data-tab="leaked">LEAKED FILES</div>
+<div class="warning-screen" id="warning">
+  <img src="logo.jpg" alt="Mandox Logo" class="warning-logo">
+  <div class="warning-title">MANDOX</div>
+  <div class="warning-text">
+    This is Mandox — where your worthless life gets dragged through the mud.<br><br>
+    Your mom probably regrets not swallowing you.<br>
+    Your dad wishes he pulled out sooner.<br>
+    Your whole family tree is a genetic dead end anyway.<br><br>
+    If you're still reading this, you're already too pathetic to leave.<br>
+    Click OK and kys in peace, you waste of oxygen.
+  </div>
+  <button class="warning-btn" id="enter-btn">OK, I'M A WORTHLESS PIECE OF SHIT</button>
 </div>
 
-<div id="mand" class="content">
-  <div class="emoji-bomb">🍆💥🔮</div>
-  <p style="font-size:1.6rem; text-align:center; color:#fff; text-shadow:0 0 20px #ff00aa;">
-    ACCESS GRANTED — PURE CHAOS UNLOCKED
-  </p>
-  <div class="gallery">
-    <div class="gallery-item">
-      <img src="1.jpeg" alt="mand dildo pic 1">
-    </div>
-    <div class="gallery-item">
-      <img src="2.jpeg" alt="mand dildo pic 2">
-    </div>
-    <div class="gallery-item">
-      <img src="3.jpg" alt="mand dildo pic 3">
-    </div>
-    <div class="gallery-item">
-      <img src="4.jpeg" alt="mand dildo pic 4">
-    </div>
-    <div class="gallery-item">
-      <img src="5.png" alt="mand dildo pic 5">
-    </div>
-    <div class="gallery-item">
-      <img src="6.png" alt="mand dildo pic 6">
-    </div>
-    <div class="gallery-item">
-      <img src="mand.webp" alt="mand extra">
-    </div>
-    <div class="gallery-item">
-      <img src="mand1.webp" alt="mand extra 1">
+<div class="main-content" id="main">
+
+  <audio id="bg-audio" autoplay loop>
+    <source src="mand.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="top-nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <img src="logo.jpg" alt="Mandox Logo" class="brand-logo">
+        MANDOX
+      </div>
+      <div class="tabs">
+        <div class="tab active" data-tab="info">INFO</div>
+        <div class="tab" data-tab="mand">MANDOX PICS</div>
+      </div>
     </div>
   </div>
-  <p style="font-size:2.2rem; text-align:center; margin:4rem 0; color:#00ffff; text-shadow:0 0 30px #00ffff88;">
-    no names, no mercy, just vibes
-  </p>
-</div>
 
-<div id="leaked" class="content" style="display:none;">
-  <div class="emoji-bomb">💾🚨📡</div>
-  <p style="font-size:1.6rem; text-align:center; color:#fff; text-shadow:0 0 20px #00ffff;">
-    DATABASE BREACH CONFIRMED — 0 DAY ZERO CHILL
-  </p>
-  <p>
-    • your 2017 search history just got minted as an NFT<br>
-    • that one voice note is still being used to train AI dommes<br>
-    • blurry 240p group chat artifact now classified as modern art<br>
-    • someone leaked the mand dildo blueprint (it's just a traffic cone)<br>
-    • 404 — dignity not found
-  </p>
-  <div class="big-lenny">( ͡° ͜ʖ ͡°)</div>
-  <p style="text-align:center; font-size:1.8rem; margin-top:2rem;">
-    that's literally all you're cleared for, freak <span style="opacity:0.7;">♡</span>
-  </p>
-</div>
+  <div id="info" class="content">
+    <h2 style="font-family: 'Orbitron', sans-serif; font-size: 2.2rem; margin-bottom: 1.5rem; color: white;">MANDOX INFO</h2>
+    <p style="font-size: 1.3rem; color: #ccc; line-height: 1.7;">
+      Mandox — the place where dignity goes to die.<br><br>
+      • Your existence is a glitch nobody asked for<br>
+      • Your mom still cries herself to sleep thinking about the abortion she should've had<br>
+      • Your dad tells people you're adopted so he doesn't have to claim you<br>
+      • Siblings? They'd sell you for a pack of smokes<br>
+      • Friends? Lmao what friends — even bots block you<br>
+      • KYS is not a suggestion here, it's a public service<br><br>
+      Enjoy rotting, you genetic failure.
+    </p>
+    <div style="text-align: center; margin: 3rem 0; font-size: 5rem; color: #444;">
+      KYS
+    </div>
+  </div>
 
-<div class="footer-joke">
-  certified 0% authentic • powered by pure clown energy • local files only
+  <div id="mand" class="content" style="display:none;">
+    <div class="emoji-bomb">🍆💥</div>
+    <p style="font-size:1.4rem; text-align:center; color:white;">
+      ACCESS GRANTED — ENJOY YOUR SHAME
+    </p>
+    <div class="gallery">
+      <div class="gallery-item"><div class="img-wrapper"><img src="1.jpeg" alt="pic 1"></div></div>
+      <div class="gallery-item"><div class="img-wrapper"><img src="2.jpeg" alt="pic 2"></div></div>
+      <div class="gallery-item"><div class="img-wrapper"><img src="3.jpg" alt="pic 3"></div></div>
+      <div class="gallery-item"><div class="img-wrapper"><img src="4.jpeg" alt="pic 4"></div></div>
+      <div class="gallery-item"><div class="img-wrapper"><img src="5.png" alt="pic 5"></div></div>
+      <div class="gallery-item"><div class="img-wrapper"><img src="6.png" alt="pic 6"></div></div>
+      <div class="gallery-item"><div class="img-wrapper"><img src="mand.webp" alt="extra"></div></div>
+      <div class="gallery-item"><div class="img-wrapper"><img src="mand1.webp" alt="extra 1"></div></div>
+    </div>
+    <p style="font-size:1.8rem; text-align:center; margin:3rem 0; color:white;">
+      no names, no mercy, your family still hates you
+    </p>
+  </div>
+
+  <div class="footer-joke">
+    certified 0% authentic • your mom agrees • kys certified
+  </div>
+
 </div>
 
 <script>
+  document.getElementById('enter-btn').addEventListener('click', function() {
+    document.getElementById('warning').style.display = 'none';
+    document.getElementById('main').style.display = 'block';
+    document.body.style.overflow = 'auto';
+
+    const audio = document.getElementById('bg-audio');
+    audio.play().catch(() => {});
+  });
+
   const tabs = document.querySelectorAll('.tab');
   const contents = document.querySelectorAll('.content');
   tabs.forEach(tab => {
@@ -268,14 +339,6 @@
       document.getElementById(tab.dataset.tab).style.display = 'block';
     });
   });
-
-  // Optional: attempt to play audio after user interaction (helps with browser autoplay restrictions)
-  document.body.addEventListener('click', function() {
-    const audio = document.getElementById('bg-audio');
-    if (audio.paused) {
-      audio.play().catch(() => {});
-    }
-  }, { once: true });
 </script>
 
 </body>
