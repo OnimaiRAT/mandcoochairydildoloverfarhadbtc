@@ -1,0 +1,28 @@
+URL: https://login.microsoftonline.com/common/oauth2/authorize
+USER: mandk70292@mnpsk12.org
+PASS: Mk100310
+
+URL: https://login.yahoo.com/account/challenge/password
+USER: mandkochary10@yahoo.com
+PASS: 190266180042998002
+
+SOFT: Edge Default (130.0.2849.46)
+===============
+
+URL: https://accounts.google.com/signin/v2/challenge/pwd
+USER: callmeqway@gmail.com
+PASS: Mand@2010M
+
+SOFT: Edge Default (130.0.2849.46)
+===============
+
+URL: https://www.roblox.com/login
+USER: veenwarkochary10012
+PASS: v190266179980020429V
+
+SOFT: Edge Default (130.0.2849.46)
+===============
+
+URL: https://www.netflix.com/signup/regform
+USER: mandkochary@gmail.com
+PASS: Mand1020
