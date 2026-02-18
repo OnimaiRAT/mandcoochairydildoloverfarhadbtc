@@ -3,127 +3,229 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Extremely Serious VIP Collection™ 😏</title>
+  <title>MAND DILDO LEAKS • VIP ACCESS 404</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: "Comic Sans MS", cursive, sans-serif;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    :root {
+      --bg: #0d0015;
+      --accent: #ff00aa;
+      --accent-glow: #ff00aa88;
+      --text: #e0f0ff;
+      --text-dim: #a0c0ff;
+      --card: rgba(20, 10, 40, 0.65);
+      --border: rgba(255, 0, 170, 0.25);
+    }
+
+    * {
       margin: 0;
-      padding: 20px;
-      color: #333;
-      text-align: center;
+      padding: 0;
+      box-sizing: border-box;
     }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Roboto Mono', monospace;
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(circle at 15% 50%, #ff00aa22 0%, transparent 25%),
+        radial-gradient(circle at 85% 30%, #00ffff22 0%, transparent 35%);
+      overflow-x: hidden;
+    }
+
     h1 {
-      font-size: 3.8rem;
-      color: #c71585;
-      text-shadow: 3px 3px 0 #fff, 6px 6px 0 #000;
-      margin: 10px 0 30px;
-      transform: rotate(-2deg);
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(2.8rem, 9vw, 6.5rem);
+      text-align: center;
+      margin: 60px 20px 20px;
+      background: linear-gradient(90deg, #ff00aa, #00ffff, #ff00aa);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 30px #ff00aa88, 0 0 60px #00ffff44;
+      letter-spacing: 4px;
+      animation: glitch 4s infinite alternate;
     }
+
     .tabs {
       display: flex;
       justify-content: center;
-      gap: 12px;
-      margin-bottom: 40px;
+      gap: 1.5rem;
+      margin: 40px 20px;
       flex-wrap: wrap;
     }
+
     .tab {
-      background: #fff;
-      border: 5px solid #000;
-      border-radius: 18px;
-      padding: 18px 36px;
-      font-size: 1.9rem;
-      font-weight: bold;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      padding: 1rem 2.5rem;
+      border: 2px solid var(--accent);
+      border-radius: 999px;
+      background: var(--card);
+      backdrop-filter: blur(10px);
+      color: var(--text-dim);
       cursor: pointer;
-      transition: all 0.15s;
-      box-shadow: 6px 6px 0 #000;
-      user-select: none;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 0 0 4px var(--accent-glow);
+      position: relative;
+      overflow: hidden;
+      letter-spacing: 2px;
     }
-    .tab:hover {
-      transform: translateY(-6px) rotate(2deg);
-      box-shadow: 10px 10px 0 #000;
-      background: #ffff99;
+
+    .tab::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, var(--accent-glow), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.6s;
     }
+
+    .tab:hover::before {
+      transform: translateX(100%);
+    }
+
+    .tab:hover,
     .tab.active {
-      background: #90ee90;
-      transform: translateY(-3px);
-      box-shadow: 8px 8px 0 #000;
+      color: white;
+      box-shadow: 0 0 40px var(--accent-glow), inset 0 0 20px var(--accent-glow);
+      transform: translateY(-6px) scale(1.05);
+      border-color: #00ffff;
     }
+
+    .tab.active {
+      background: linear-gradient(145deg, rgba(255,0,170,0.25), rgba(0,255,255,0.15));
+    }
+
     .content {
-      max-width: 900px;
-      margin: 0 auto;
-      background: rgba(255,255,255,0.8);
-      padding: 40px;
-      border-radius: 22px;
-      border: 4px dashed #ff69b4;
-      min-height: 400px;
+      max-width: 1000px;
+      margin: 0 auto 80px;
+      padding: 3rem 2rem;
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6), inset 0 0 40px rgba(255,0,170,0.08);
+      min-height: 500px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .emoji-bomb {
+      font-size: 6rem;
+      text-align: center;
+      margin: 2rem 0 1.5rem;
+      filter: drop-shadow(0 0 20px #ff00aa);
+      animation: pulse 3s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { transform: scale(0.92); opacity: 0.8; }
+      to   { transform: scale(1.08); opacity: 1; }
+    }
+
+    .content p, .content ul {
       font-size: 1.4rem;
-      line-height: 1.6;
+      line-height: 1.7;
+      margin: 1.5rem 0;
+      color: var(--text-dim);
     }
-    .hidden { display: none; }
-    .emoji-explosion {
-      font-size: 4rem;
-      margin: 30px 0;
-      animation: shake 0.8s infinite;
+
+    .content li {
+      margin: 1rem 0;
+      padding-left: 1.8rem;
+      position: relative;
     }
-    @keyframes shake {
-      0%,100% { transform: rotate(0deg); }
-      25% { transform: rotate(6deg); }
-      75% { transform: rotate(-6deg); }
+
+    .content li::before {
+      content: "→";
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
     }
-    .tiny {
-      font-size: 1rem;
+
+    .big-lenny {
+      font-size: 9rem;
+      text-align: center;
+      margin: 3rem 0;
+      filter: drop-shadow(0 0 30px #00ffff88);
+    }
+
+    .footer-joke {
+      text-align: center;
+      font-size: 1.1rem;
       color: #666;
-      margin-top: 60px;
+      margin: 4rem 0 2rem;
+      opacity: 0.6;
+    }
+
+    @keyframes glitch {
+      0%, 100% { text-shadow: 2px 0 #00ffff, -2px 0 #ff00aa; }
+      10% { text-shadow: -2px 0 #00ffff, 2px 0 #ff00aa; transform: skew(2deg); }
+      20% { transform: skew(-2deg); }
+    }
+
+    @media (max-width: 600px) {
+      .tabs { flex-direction: column; align-items: center; gap: 1rem; }
+      .tab { width: 90%; text-align: center; }
+      h1 { margin: 40px 10px 20px; font-size: 3.8rem; }
     }
   </style>
 </head>
 <body>
 
-<h1>World Exclusive<br>MAND DILDO PICS™ COLLECTION</h1>
+<h1>MAND DILDO LEAKS<br>ULTRA VIP DROP</h1>
 
 <div class="tabs">
-  <div class="tab active" data-tab="mand">MAND DILDO PICS 😳</div>
-  <div class="tab" data-tab="leaked">LEAKED 😱🔥</div>
+  <div class="tab active" data-tab="mand">MAND DILDO PICS</div>
+  <div class="tab" data-tab="leaked">LEAKED FILES</div>
 </div>
 
 <div id="mand" class="content">
-  <div class="emoji-explosion">🍆💦🚨 FAKE NEWS ALERT 🚨</div>
-  <p>
-    Unfortunately (or fortunately?) no actual mand dildos were harmed during the making of this website.<br><br>
-    This is just me, a concerned citizen, protecting the timeline from low-effort coomer bait.<br>
-    Instead please enjoy this hand-curated selection of premium mental images:
+  <div class="emoji-bomb">🍆💥🔮</div>
+  <p style="font-size:1.6rem; text-align:center; color:#fff; text-shadow:0 0 20px #ff00aa;">
+    ACCESS DENIED — SIMULATION MODE ENGAGED
   </p>
-  <ul style="list-style:none; padding:0; font-size:1.6rem; margin:40px 0;">
-    <li>🟣 extremely average purple dildo doing yoga</li>
-    <li>🍌 banana in witness protection program</li>
-    <li>📏 the Michelin man if he went through a mid-life crisis</li>
-    <li>🎨 Picasso's least popular blue period piece</li>
-    <li>🤡 Ronald McDonald after one too many adult happy meals</li>
+  <p>
+    No real pixels were leaked in the making of this drop.<br>
+    What you're seeing is 100% certified chaos-engineered mental malware.
+  </p>
+  <ul>
+    <li>neon pink dildo doing the cyberpunk 2077 moonwalk</li>
+    <li>government-issued beige tactical dildo (classified)</li>
+    <li>dildo cosplaying as a lightsaber (blue team edition)</li>
+    <li>that one cursed cucumber from the group chat that never died</li>
+    <li>abstract expressionist paint roller that identifies as NSFW</li>
   </ul>
-  <p style="font-size:2.2rem; margin:50px 0;">you're welcome 🌸</p>
+  <p style="font-size:2.2rem; text-align:center; margin:4rem 0; color:#00ffff; text-shadow:0 0 30px #00ffff88;">
+    your move, coomer
+  </p>
 </div>
 
-<div id="leaked" class="content hidden">
-  <div class="emoji-explosion">🚨 MEGA LEAK 2026 🚨</div>
+<div id="leaked" class="content" style="display:none;">
+  <div class="emoji-bomb">💾🚨📡</div>
+  <p style="font-size:1.6rem; text-align:center; color:#fff; text-shadow:0 0 20px #00ffff;">
+    DATABASE BREACH CONFIRMED — 0 DAY ZERO CHILL
+  </p>
   <p>
-    TOP SECRET DOCUMENTS JUST DROPPED:<br><br>
-    • 87% of all leaked nudes are just people accidentally liking their own story<br>
-    • The real elite keep their OnlyFans on a floppy disk in a safe<br>
-    • Your search history from 2014 is currently living its best life in a data center in Latvia<br>
-    • That one blurry pic from the group chat? Still being used in cybersecurity training 12 years later
+    • your 2017 search history just got minted as an NFT<br>
+    • that one voice note is still being used to train AI dommes<br>
+    • blurry 240p group chat artifact now classified as modern art<br>
+    • someone leaked the mand dildo blueprint (it's just a traffic cone)<br>
+    • 404 — dignity not found
   </p>
-  <p style="font-size:2.8rem; margin:60px 0;">
-    anyway here's your "leaked" content:
-  </p>
-  <p style="font-size:6rem;">( ͡° ͜ʖ ͡°)</p>
-  <p style="font-size:1.8rem; margin-top:40px;">
-    yeah that's all you're getting, perv <span style="font-size:0.8em">😘</span>
+  <div class="big-lenny">( ͡° ͜ʖ ͡°)</div>
+  <p style="text-align:center; font-size:1.8rem; margin-top:2rem;">
+    that's literally all you're cleared for, freak <span style="opacity:0.7;">♡</span>
   </p>
 </div>
 
-<div class="tiny">
-  certified 0% real pixels • made with 100% chaos • do not take seriously
+<div class="footer-joke">
+  certified 0% authentic • powered by pure clown energy • do not hydrate
 </div>
 
 <script>
@@ -135,8 +237,8 @@
       tabs.forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
 
-      contents.forEach(c => c.classList.add('hidden'));
-      document.getElementById(tab.dataset.tab).classList.remove('hidden');
+      contents.forEach(c => c.style.display = 'none');
+      document.getElementById(tab.dataset.tab).style.display = 'block';
     });
   });
 </script>
