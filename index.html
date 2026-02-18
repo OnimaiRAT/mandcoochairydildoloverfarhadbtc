@@ -161,7 +161,6 @@
       height: auto;
       display: block;
     }
-
     /* ── SMOKING TAB – SIDE BY SIDE + SMALLER ─────────────────────────────── */
     .smoking-media-row {
       display: flex;
@@ -170,19 +169,16 @@
       gap: 2rem;
       margin: 2rem 0;
     }
-
     #smoking .media-container {
       max-width: 480px;
-      flex: 1 1 400px;          /* grow & shrink, min ~400px */
-      margin: 0;                /* reset auto margin */
+      flex: 1 1 400px;
+      margin: 0;
     }
-
     #smoking .rooj-roast {
       font-size: 1.9rem;
       margin: 2rem 0 1.5rem;
       text-align: center;
     }
-
     @media (max-width: 900px) {
       .smoking-media-row {
         flex-direction: column;
@@ -193,7 +189,6 @@
         max-width: 420px;
       }
     }
-
     @media (max-width: 600px) {
       #smoking .media-container {
         max-width: 360px;
@@ -203,7 +198,6 @@
       }
     }
     /* ────────────────────────────────────────────────────────────────────── */
-
     .rooj-roast {
       text-align: center;
       font-size: 2.2rem;
@@ -448,19 +442,18 @@ Your whole bloodline is cooked. KYS.
     <h2 style="font-family: 'Orbitron', sans-serif; font-size: 2.2rem; margin-bottom: 1.5rem; color: white; text-align:center;">
       SMOKING
     </h2>
-
     <div class="smoking-media-row">
       <div class="media-container">
-        <video autoplay loop muted playsinline controls>
-          <source src="smoking.mp4" type="video/quicktime">
-          Your browser does not support the video tag.
+        <video autoplay loop muted playsinline controls preload="auto">
+          <source src="smoking.mp4" type="video/mp4">
+          Your browser does not support video playback.<br>
+          Try updating your browser or use Chrome/Firefox/Safari.
         </video>
       </div>
       <div class="media-container">
         <img src="handing.jpg" alt="Handing">
       </div>
     </div>
-
     <div class="rooj-roast">
       HOW WOULD ROOJ FEEL IF SHE SAW THIS ADDICTED BUM
     </div>
@@ -473,12 +466,15 @@ Your whole bloodline is cooked. KYS.
 
 <script>
   let isAudioMuted = false;
+
   document.getElementById('enter-btn').addEventListener('click', function() {
     document.getElementById('warning').style.display = 'none';
     document.getElementById('main').style.display = 'block';
     document.body.style.overflow = 'auto';
+
     const audio = document.getElementById('bg-audio');
     const toggleBtn = document.getElementById('audio-toggle');
+
     if (isAudioMuted) {
       audio.pause();
       toggleBtn.textContent = '🔇 Muted';
@@ -491,6 +487,7 @@ Your whole bloodline is cooked. KYS.
 
   const tabs = document.querySelectorAll('.tab');
   const contents = document.querySelectorAll('.content');
+
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       tabs.forEach(t => t.classList.remove('active'));
@@ -502,6 +499,7 @@ Your whole bloodline is cooked. KYS.
 
   const audio = document.getElementById('bg-audio');
   const toggleBtn = document.getElementById('audio-toggle');
+
   toggleBtn.addEventListener('click', () => {
     if (audio.paused || audio.ended) {
       audio.play().catch(() => {});
