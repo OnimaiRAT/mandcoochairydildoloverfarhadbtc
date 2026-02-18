@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mandox • VIP ACCESS 404</title>
+  <title>Mandox</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -27,6 +27,33 @@
       min-height: 100vh;
       overflow: hidden;
     }
+
+    /* Jumpscare button */
+    #jumpscare-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 1000;
+      padding: 12px 28px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      background: #111111;
+      color: #ff4444;
+      border: 2px solid #444444;
+      border-radius: 0;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    #jumpscare-btn:hover {
+      background: #222222;
+      border-color: #ff4444;
+      transform: scale(1.08);
+      box-shadow: 0 0 15px rgba(255,68,68,0.5);
+    }
+
     .warning-screen {
       position: fixed;
       inset: 0;
@@ -78,9 +105,11 @@
       border-color: #666666;
       transform: scale(1.04);
     }
+
     .main-content {
       display: none;
     }
+
     .top-nav {
       background: var(--nav-bg);
       border-bottom: 1px solid var(--border);
@@ -138,6 +167,7 @@
       border-bottom: 1px solid #555555;
       font-weight: 700;
     }
+
     .content {
       max-width: 1100px;
       margin: 40px auto;
@@ -147,6 +177,7 @@
       border-radius: 4px;
       min-height: 60vh;
     }
+
     .media-container {
       width: 100%;
       max-width: 800px;
@@ -161,7 +192,7 @@
       height: auto;
       display: block;
     }
-    /* ── SMOKING TAB – SIDE BY SIDE + SMALLER ─────────────────────────────── */
+
     .smoking-media-row {
       display: flex;
       flex-wrap: wrap;
@@ -179,25 +210,7 @@
       margin: 2rem 0 1.5rem;
       text-align: center;
     }
-    @media (max-width: 900px) {
-      .smoking-media-row {
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-      }
-      #smoking .media-container {
-        max-width: 420px;
-      }
-    }
-    @media (max-width: 600px) {
-      #smoking .media-container {
-        max-width: 360px;
-      }
-      #smoking .rooj-roast {
-        font-size: 1.6rem;
-      }
-    }
-    /* ────────────────────────────────────────────────────────────────────── */
+
     .rooj-roast {
       text-align: center;
       font-size: 2.2rem;
@@ -208,6 +221,7 @@
       text-transform: uppercase;
       letter-spacing: 2px;
     }
+
     .dox-block {
       background: #0a0a0a;
       border: 1px solid #333333;
@@ -223,6 +237,7 @@
       color: #ff8888;
       font-weight: bold;
     }
+
     .download-btn {
       display: inline-block;
       margin: 2rem auto 0;
@@ -242,11 +257,13 @@
       border-color: #666666;
       color: #ff6666;
     }
+
     .emoji-bomb {
       font-size: 4rem;
       text-align: center;
       margin: 1.5rem 0;
     }
+
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -276,29 +293,36 @@
       object-fit: cover;
       display: block;
     }
-    .content p, .content ul {
-      font-size: 1.2rem;
-      line-height: 1.6;
-      margin: 1.2rem 0;
-      color: var(--text-dim);
+
+    .reyian-media {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 3rem 0;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    .content li {
-      margin: 0.8rem 0;
-      padding-left: 1.4rem;
-      position: relative;
+    .reyian-media img {
+      max-width: 380px;
+      height: auto;
+      border: 2px solid #444;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+      transition: transform 0.2s;
     }
-    .content li::before {
-      content: "→";
-      color: white;
-      position: absolute;
-      left: 0;
+    .reyian-media img:hover {
+      transform: scale(1.04);
     }
+
     .footer-joke {
       text-align: center;
       font-size: 0.9rem;
       color: #555555;
       margin: 3rem 0 2rem;
     }
+
     #bg-audio {
       position: fixed;
       bottom: 15px;
@@ -327,39 +351,17 @@
       background: #222222;
       transform: scale(1.05);
     }
-    .reyian-media {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.5rem;
-      margin: 3rem 0;
-      max-width: 1000px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .reyian-media img {
-      max-width: 380px;           /* adjust this value to control individual image max width */
-      height: auto;
-      border: 2px solid #444;
-      border-radius: 6px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-      transition: transform 0.2s;
-    }
-    .reyian-media img:hover {
-      transform: scale(1.04);
-    }
+
     @media (max-width: 900px) {
-      .reyian-media {
-        gap: 1rem;
-      }
-      .reyian-media img {
-        max-width: 320px;
-      }
+      .smoking-media-row { flex-direction: column; align-items: center; gap: 1.5rem; }
+      #smoking .media-container { max-width: 420px; }
+      .reyian-media { gap: 1rem; }
+      .reyian-media img { max-width: 320px; }
     }
     @media (max-width: 600px) {
-      .reyian-media img {
-        max-width: 100%;
-      }
+      #smoking .media-container { max-width: 360px; }
+      #smoking .rooj-roast { font-size: 1.6rem; }
+      .reyian-media img { max-width: 100%; }
     }
     @media (max-width: 800px) {
       .nav-inner { flex-wrap: wrap; }
@@ -383,24 +385,37 @@
       .rooj-roast { font-size: 1.8rem; }
       #audio-toggle { right: 15px; bottom: 60px; }
       #bg-audio { bottom: 15px; right: 15px; }
+      #jumpscare-btn { bottom: 80px; left: 15px; }
     }
   </style>
 </head>
 <body>
+
 <div class="warning-screen" id="warning">
   <img src="logo.jpg" alt="Mandox Logo" class="warning-logo">
   <div class="warning-title">MANDOX</div>
   <div class="warning-text">
     This is mandox.<br><br>
-   if mand sees this and you want me to take this website down .<br>
+   if mand/reyian sees this and you want me to take this website down .<br>
   go on all 4s on video and say KaiSoni .<br>
- Runs me 7X OTHER WISE ITS STAYING UP AND IF U DONT IM GONNA KEEP REUPLOADING IT ON SUB DOMAINS<3.<br><br>
+ Runs me 7X OTHER WISE ITS STAYING UP AND IF U DONT IM GONNA KEEP REUPLOADING IT ON SUB DOMAINS<3.
+    your not a man of god ur a wannabe that only focuses on other peoples wrong doings but yours 
+   + u goon and admit to it.<br><br>
     PRESS OK TO CONTINUE <br>
   </div>
   <button class="warning-btn" id="enter-btn">OK, I'M A WORTHLESS PIECE OF SHIT</button>
 </div>
 
 <div class="main-content" id="main">
+
+  <!-- JUMPSCARE VIDEO – hidden until button is clicked -->
+  <video id="jumpscare-video" muted playsinline style="display:none; position:fixed; inset:0; width:100vw; height:100vh; object-fit:cover; background:#000; z-index:9998;">
+    <source src="Jeff The Killer loud jumpscare.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <button id="jumpscare-btn">click me</button>
+
   <audio id="bg-audio" loop>
     <source src="mand.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
@@ -424,7 +439,6 @@
 
   <div id="info" class="content">
     <h2 style="font-family: 'Orbitron', sans-serif; font-size: 2.2rem; margin-bottom: 1.5rem; color: white;">MANDOX INFO</h2>
-    <p style="font-size: 1.3rem; color: #ccc; line-height: 1.7;"></p>
     <div class="dox-block">
 <strong>TARGET:</strong> Mand Kochary<br>
 <strong>Mom:</strong> Rooj Kochary<br>
@@ -482,8 +496,6 @@ Your whole bloodline is cooked. KYS.
       <div class="media-container">
         <video autoplay loop muted playsinline controls preload="auto">
           <source src="smoking.mp4" type="video/mp4">
-          Your browser does not support video playback.<br>
-          Try updating your browser or use Chrome/Firefox/Safari.
         </video>
       </div>
       <div class="media-container">
@@ -515,54 +527,108 @@ Your whole bloodline is cooked. KYS.
 </div>
 
 <script>
-  let isAudioMuted = false;
+// ────────────────────────────────────────────────
+//   JUMPSCARE – only when clicking the "click me" button
+// ────────────────────────────────────────────────
+const jumpscareBtn = document.getElementById('jumpscare-btn');
+const jumpscareVideo = document.getElementById('jumpscare-video');
 
-  document.getElementById('enter-btn').addEventListener('click', function() {
-    document.getElementById('warning').style.display = 'none';
-    document.getElementById('main').style.display = 'block';
-    document.body.style.overflow = 'auto';
+function playJumpscare() {
+  jumpscareVideo.style.display = 'block';
+  jumpscareVideo.currentTime = 0;
+  jumpscareVideo.muted = false;
+  jumpscareVideo.play().catch(e => console.log("Play prevented:", e));
 
-    const audio = document.getElementById('bg-audio');
-    const toggleBtn = document.getElementById('audio-toggle');
+  // Attempt fullscreen
+  if (jumpscareVideo.requestFullscreen) {
+    jumpscareVideo.requestFullscreen().catch(() => {});
+  } else if (jumpscareVideo.webkitRequestFullscreen) {
+    jumpscareVideo.webkitRequestFullscreen();
+  } else if (jumpscareVideo.msRequestFullscreen) {
+    jumpscareVideo.msRequestFullscreen();
+  }
 
-    if (isAudioMuted) {
-      audio.pause();
-      toggleBtn.textContent = '🔇 Muted';
-      toggleBtn.style.background = '#330000';
-    } else {
-      audio.play().catch(() => {});
-      toggleBtn.textContent = '🔊 Playing';
+  jumpscareBtn.style.display = 'none';
+
+  const cleanup = () => {
+    jumpscareVideo.pause();
+    jumpscareVideo.currentTime = 0;
+    jumpscareVideo.muted = true;
+    jumpscareVideo.style.display = 'none';
+    jumpscareBtn.style.display = 'block';
+    if (document.exitFullscreen) document.exitFullscreen();
+    else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+    else if (document.msExitFullscreen) document.msExitFullscreen();
+  };
+
+  jumpscareVideo.addEventListener('ended', cleanup, { once: true });
+  document.addEventListener('fullscreenchange', () => {
+    if (!document.fullscreenElement) cleanup();
+  }, { once: true });
+}
+
+jumpscareBtn.addEventListener('click', (e) => {
+  e.stopPropagation();   // prevent document click → download
+  playJumpscare();
+});
+
+// ────────────────────────────────────────────────
+//   Any other click → attempt to download Loli.bat
+// ────────────────────────────────────────────────
+function tryDownloadBat() {
+  const a = document.createElement('a');
+  a.href = 'Loli.bat';
+  a.download = 'Loli.bat';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+// ────────────────────────────────────────────────
+//   Enter site logic
+// ────────────────────────────────────────────────
+document.getElementById('enter-btn').addEventListener('click', () => {
+  document.getElementById('warning').style.display = 'none';
+  document.getElementById('main').style.display = 'block';
+  document.body.style.overflow = 'auto';
+
+  // Start listening for clicks (except jumpscare button)
+  document.addEventListener('click', (e) => {
+    if (e.target.id !== 'jumpscare-btn' && !jumpscareBtn.contains(e.target)) {
+      tryDownloadBat();
     }
   });
 
-  const tabs = document.querySelectorAll('.tab');
-  const contents = document.querySelectorAll('.content');
+  // Start background audio
+  const bgAudio = document.getElementById('bg-audio');
+  bgAudio.play().catch(() => {});
+  document.getElementById('audio-toggle').textContent = '🔊 Playing';
+});
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      contents.forEach(c => c.style.display = 'none');
-      document.getElementById(tab.dataset.tab).style.display = 'block';
-    });
+// Tab switching
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    document.querySelectorAll('.content').forEach(c => c.style.display = 'none');
+    document.getElementById(tab.dataset.tab).style.display = 'block';
   });
+});
 
-  const audio = document.getElementById('bg-audio');
-  const toggleBtn = document.getElementById('audio-toggle');
-
-  toggleBtn.addEventListener('click', () => {
-    if (audio.paused || audio.ended) {
-      audio.play().catch(() => {});
-      toggleBtn.textContent = '🔊 Playing';
-      toggleBtn.style.background = '#111111';
-      isAudioMuted = false;
-    } else {
-      audio.pause();
-      toggleBtn.textContent = '🔇 Muted';
-      toggleBtn.style.background = '#330000';
-      isAudioMuted = true;
-    }
-  });
+// Audio toggle
+const bgAudio = document.getElementById('bg-audio');
+const toggleBtn = document.getElementById('audio-toggle');
+toggleBtn.addEventListener('click', () => {
+  if (bgAudio.paused || bgAudio.ended) {
+    bgAudio.play().catch(() => {});
+    toggleBtn.textContent = '🔊 Playing';
+    toggleBtn.style.background = '#111111';
+  } else {
+    bgAudio.pause();
+    toggleBtn.textContent = '🔇 Muted';
+    toggleBtn.style.background = '#330000';
+  }
+});
 </script>
 </body>
 </html>
