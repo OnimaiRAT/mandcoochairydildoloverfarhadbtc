@@ -162,20 +162,41 @@
       display: block;
     }
 
-    /* ── SMOKING TAB – SMALLER MEDIA ─────────────────────────────────────── */
+    /* ── SMOKING TAB – SIDE BY SIDE + SMALLER ─────────────────────────────── */
+    .smoking-media-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
     #smoking .media-container {
       max-width: 480px;
-      margin: 1.5rem auto;
+      flex: 1 1 400px;          /* grow & shrink, min ~400px */
+      margin: 0;                /* reset auto margin */
     }
+
     #smoking .rooj-roast {
-      font-size: 1.9rem;          /* slightly smaller to match scale */
+      font-size: 1.9rem;
       margin: 2rem 0 1.5rem;
+      text-align: center;
     }
-    /* Optional: tighter section padding on mobile */
+
+    @media (max-width: 900px) {
+      .smoking-media-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+      }
+      #smoking .media-container {
+        max-width: 420px;
+      }
+    }
+
     @media (max-width: 600px) {
       #smoking .media-container {
         max-width: 360px;
-        margin: 1.2rem auto;
       }
       #smoking .rooj-roast {
         font-size: 1.6rem;
@@ -347,16 +368,17 @@
   go on all 4s on video and say KaiSoni .<br>
  Runs me 7X OTHER WISE ITS STAYING UP AND IF U DONT IM GONNA KEEP REUPLOADING IT ON SUB DOMAINS<3.<br><br>
     PRESS OK TO CONTINUE <br>
- 
   </div>
   <button class="warning-btn" id="enter-btn">OK, I'M A WORTHLESS PIECE OF SHIT</button>
 </div>
+
 <div class="main-content" id="main">
   <audio id="bg-audio" loop>
     <source src="mand.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
   <button id="audio-toggle" title="Toggle background audio">🔊 Playing</button>
+
   <div class="top-nav">
     <div class="nav-inner">
       <div class="brand">
@@ -370,11 +392,10 @@
       </div>
     </div>
   </div>
+
   <div id="info" class="content">
     <h2 style="font-family: 'Orbitron', sans-serif; font-size: 2.2rem; margin-bottom: 1.5rem; color: white;">MANDOX INFO</h2>
-    <p style="font-size: 1.3rem; color: #ccc; line-height: 1.7;">
-   
-    </p>
+    <p style="font-size: 1.3rem; color: #ccc; line-height: 1.7;"></p>
     <div class="dox-block">
 <strong>TARGET:</strong> Mand Kochary<br>
 <strong>Mom:</strong> Rooj Kochary<br>
@@ -402,6 +423,7 @@ Your whole bloodline is cooked. KYS.
       KYS
     </div>
   </div>
+
   <div id="mand" class="content" style="display:none;">
     <div class="emoji-bomb"></div>
     <p style="font-size:1.4rem; text-align:center; color:white;">
@@ -421,30 +443,36 @@ Your whole bloodline is cooked. KYS.
       your family still hates you
     </p>
   </div>
+
   <div id="smoking" class="content" style="display:none;">
     <h2 style="font-family: 'Orbitron', sans-serif; font-size: 2.2rem; margin-bottom: 1.5rem; color: white; text-align:center;">
       SMOKING
     </h2>
-    <div class="media-container">
-      <video autoplay loop muted playsinline controls>
-        <source src="smoking.mp4" type="video/quicktime">
-        Your browser does not support the video tag.
-      </video>
+
+    <div class="smoking-media-row">
+      <div class="media-container">
+        <video autoplay loop muted playsinline controls>
+          <source src="smoking.mp4" type="video/quicktime">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="media-container">
+        <img src="handing.jpg" alt="Handing">
+      </div>
     </div>
-    <div class="media-container" style="margin-top: 1.5rem;">
-      <img src="handing.jpg" alt="Handing">
-    </div>
+
     <div class="rooj-roast">
       HOW WOULD ROOJ FEEL IF SHE SAW THIS ADDICTED BUM
     </div>
   </div>
+
   <div class="footer-joke">
     certified 0% authentic • your mom agrees • kys certified
   </div>
 </div>
+
 <script>
-  let isAudioMuted = false; // in-memory only — resets on page reload
-  // Enter main content
+  let isAudioMuted = false;
   document.getElementById('enter-btn').addEventListener('click', function() {
     document.getElementById('warning').style.display = 'none';
     document.getElementById('main').style.display = 'block';
@@ -460,7 +488,7 @@ Your whole bloodline is cooked. KYS.
       toggleBtn.textContent = '🔊 Playing';
     }
   });
-  // Tab switching
+
   const tabs = document.querySelectorAll('.tab');
   const contents = document.querySelectorAll('.content');
   tabs.forEach(tab => {
@@ -471,7 +499,7 @@ Your whole bloodline is cooked. KYS.
       document.getElementById(tab.dataset.tab).style.display = 'block';
     });
   });
-  // Audio toggle
+
   const audio = document.getElementById('bg-audio');
   const toggleBtn = document.getElementById('audio-toggle');
   toggleBtn.addEventListener('click', () => {
