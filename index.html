@@ -17,20 +17,17 @@
       --card: rgba(20, 10, 40, 0.65);
       --border: rgba(255, 0, 170, 0.25);
     }
-
     * { margin:0; padding:0; box-sizing:border-box; }
-
     body {
       background: var(--bg);
       color: var(--text);
       font-family: 'Roboto Mono', monospace;
       min-height: 100vh;
-      background-image: 
+      background-image:
         radial-gradient(circle at 15% 50%, #ff00aa22 0%, transparent 25%),
         radial-gradient(circle at 85% 30%, #00ffff22 0%, transparent 35%);
       overflow-x: hidden;
     }
-
     h1 {
       font-family: 'Orbitron', sans-serif;
       font-size: clamp(2.8rem, 9vw, 6.5rem);
@@ -44,7 +41,6 @@
       letter-spacing: 4px;
       animation: glitch 4s infinite alternate;
     }
-
     .tabs {
       display: flex;
       justify-content: center;
@@ -52,7 +48,6 @@
       margin: 40px 20px;
       flex-wrap: wrap;
     }
-
     .tab {
       font-family: 'Orbitron', sans-serif;
       font-size: 1.5rem;
@@ -70,7 +65,6 @@
       overflow: hidden;
       letter-spacing: 2px;
     }
-
     .tab::before {
       content: '';
       position: absolute;
@@ -79,9 +73,7 @@
       transform: translateX(-100%);
       transition: transform 0.6s;
     }
-
     .tab:hover::before { transform: translateX(100%); }
-
     .tab:hover,
     .tab.active {
       color: white;
@@ -89,11 +81,9 @@
       transform: translateY(-6px) scale(1.05);
       border-color: #00ffff;
     }
-
     .tab.active {
       background: linear-gradient(145deg, rgba(255,0,170,0.25), rgba(0,255,255,0.15));
     }
-
     .content {
       max-width: 1200px;
       margin: 0 auto 80px;
@@ -107,7 +97,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .emoji-bomb {
       font-size: 6rem;
       text-align: center;
@@ -115,19 +104,16 @@
       filter: drop-shadow(0 0 20px #ff00aa);
       animation: pulse 3s infinite alternate;
     }
-
     @keyframes pulse {
       from { transform: scale(0.92); opacity: 0.8; }
-      to   { transform: scale(1.08); opacity: 1; }
+      to { transform: scale(1.08); opacity: 1; }
     }
-
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 2rem;
       margin: 2.5rem 0;
     }
-
     .gallery-item {
       background: rgba(255,255,255,0.05);
       border: 1px solid var(--accent-glow);
@@ -136,35 +122,28 @@
       transition: all 0.35s;
       position: relative;
     }
-
     .gallery-item:hover {
       transform: translateY(-12px) scale(1.04);
       box-shadow: 0 25px 60px rgba(255,0,170,0.45);
       border-color: #00ffff;
     }
-
     .gallery-item img {
       width: 100%;
       height: auto;
       display: block;
       object-fit: cover;
     }
-
-    /* Removed .gallery-caption entirely - no file names shown */
-
     .content p, .content ul {
       font-size: 1.4rem;
       line-height: 1.7;
       margin: 1.5rem 0;
       color: var(--text-dim);
     }
-
     .content li {
       margin: 1rem 0;
       padding-left: 1.8rem;
       position: relative;
     }
-
     .content li::before {
       content: "→";
       color: var(--accent);
@@ -172,14 +151,12 @@
       left: 0;
       font-weight: bold;
     }
-
     .big-lenny {
       font-size: 9rem;
       text-align: center;
       margin: 3rem 0;
       filter: drop-shadow(0 0 30px #00ffff88);
     }
-
     .footer-joke {
       text-align: center;
       font-size: 1.1rem;
@@ -187,25 +164,36 @@
       margin: 4rem 0 2rem;
       opacity: 0.6;
     }
-
     @keyframes glitch {
       0%, 100% { text-shadow: 2px 0 #00ffff, -2px 0 #ff00aa; }
       10% { text-shadow: -2px 0 #00ffff, 2px 0 #ff00aa; transform: skew(2deg); }
       20% { transform: skew(-2deg); }
     }
-
     @media (max-width: 600px) {
       .tabs { flex-direction: column; align-items: center; gap: 1rem; }
       .tab { width: 90%; text-align: center; }
       h1 { margin: 40px 10px 20px; font-size: 3.8rem; }
       .gallery { grid-template-columns: 1fr; gap: 1.5rem; }
     }
+
+    /* Hidden audio player */
+    #bg-audio {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      opacity: 0.3;
+      z-index: 9999;
+    }
   </style>
 </head>
 <body>
 
-<h1>MAND DILDO LEAKS<br>ULTRA VIP DROP</h1>
+<audio id="bg-audio" autoplay loop>
+  <source src="mand.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
 
+<h1>MAND DILDO LEAKS<br>ULTRA VIP DROP</h1>
 <div class="tabs">
   <div class="tab active" data-tab="mand">MAND DILDO PICS</div>
   <div class="tab" data-tab="leaked">LEAKED FILES</div>
@@ -216,7 +204,6 @@
   <p style="font-size:1.6rem; text-align:center; color:#fff; text-shadow:0 0 20px #ff00aa;">
     ACCESS GRANTED — PURE CHAOS UNLOCKED
   </p>
-
   <div class="gallery">
     <div class="gallery-item">
       <img src="1.jpeg" alt="mand dildo pic 1">
@@ -231,13 +218,18 @@
       <img src="4.jpeg" alt="mand dildo pic 4">
     </div>
     <div class="gallery-item">
+      <img src="5.png" alt="mand dildo pic 5">
+    </div>
+    <div class="gallery-item">
+      <img src="6.png" alt="mand dildo pic 6">
+    </div>
+    <div class="gallery-item">
       <img src="mand.webp" alt="mand extra">
     </div>
     <div class="gallery-item">
       <img src="mand1.webp" alt="mand extra 1">
     </div>
   </div>
-
   <p style="font-size:2.2rem; text-align:center; margin:4rem 0; color:#00ffff; text-shadow:0 0 30px #00ffff88;">
     no names, no mercy, just vibes
   </p>
@@ -268,16 +260,22 @@
 <script>
   const tabs = document.querySelectorAll('.tab');
   const contents = document.querySelectorAll('.content');
-
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       tabs.forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
-
       contents.forEach(c => c.style.display = 'none');
       document.getElementById(tab.dataset.tab).style.display = 'block';
     });
   });
+
+  // Optional: attempt to play audio after user interaction (helps with browser autoplay restrictions)
+  document.body.addEventListener('click', function() {
+    const audio = document.getElementById('bg-audio');
+    if (audio.paused) {
+      audio.play().catch(() => {});
+    }
+  }, { once: true });
 </script>
 
 </body>
