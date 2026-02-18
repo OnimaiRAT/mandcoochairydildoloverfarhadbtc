@@ -18,11 +18,7 @@
       --border: rgba(255, 0, 170, 0.25);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; }
 
     body {
       background: var(--bg);
@@ -84,9 +80,7 @@
       transition: transform 0.6s;
     }
 
-    .tab:hover::before {
-      transform: translateX(100%);
-    }
+    .tab:hover::before { transform: translateX(100%); }
 
     .tab:hover,
     .tab.active {
@@ -101,7 +95,7 @@
     }
 
     .content {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 0 auto 80px;
       padding: 3rem 2rem;
       background: var(--card);
@@ -125,6 +119,44 @@
     @keyframes pulse {
       from { transform: scale(0.92); opacity: 0.8; }
       to   { transform: scale(1.08); opacity: 1; }
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.8rem;
+      margin: 2.5rem 0;
+    }
+
+    .gallery-item {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--accent-glow);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.35s;
+      position: relative;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-10px) scale(1.04);
+      box-shadow: 0 20px 50px rgba(255,0,170,0.4);
+      border-color: #00ffff;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .gallery-caption {
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.3rem;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff88;
+      background: rgba(0,0,0,0.4);
     }
 
     .content p, .content ul {
@@ -173,6 +205,7 @@
       .tabs { flex-direction: column; align-items: center; gap: 1rem; }
       .tab { width: 90%; text-align: center; }
       h1 { margin: 40px 10px 20px; font-size: 3.8rem; }
+      .gallery { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -188,21 +221,30 @@
 <div id="mand" class="content">
   <div class="emoji-bomb">🍆💥🔮</div>
   <p style="font-size:1.6rem; text-align:center; color:#fff; text-shadow:0 0 20px #ff00aa;">
-    ACCESS DENIED — SIMULATION MODE ENGAGED
+    ACCESS GRANTED — WITNESS THE CHAOS
   </p>
-  <p>
-    No real pixels were leaked in the making of this drop.<br>
-    What you're seeing is 100% certified chaos-engineered mental malware.
-  </p>
-  <ul>
-    <li>neon pink dildo doing the cyberpunk 2077 moonwalk</li>
-    <li>government-issued beige tactical dildo (classified)</li>
-    <li>dildo cosplaying as a lightsaber (blue team edition)</li>
-    <li>that one cursed cucumber from the group chat that never died</li>
-    <li>abstract expressionist paint roller that identifies as NSFW</li>
-  </ul>
+
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="https://thumbs.dreamstime.com/b/fluffy-neon-light-cartoon-character-long-ears-fluffy-neon-light-cartoon-character-long-ears-generative-ai-272370718.jpg" alt="neon fluff thing">
+      <div class="gallery-caption">1.jpeg</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://thumbs.dreamstime.com/b/cartoon-character-friendly-robot-chatbot-holding-smartphone-neon-background-generative-ai-illustrating-use-customer-291397007.jpg" alt="neon robot buddy">
+      <div class="gallery-caption">2.jpeg</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://reviewed-com-res.cloudinary.com/image/fetch/s--745pmehi--/b_white,c_fill,cs_srgb,f_auto,fl_progressive.strip_profile,g_auto,h_729,q_auto,w_972/https://reviewed-production.s3.amazonaws.com/1720555306000/20240506_SexToysDontLookLikeSexToys.jpg" alt="fruit bowl incident">
+      <div class="gallery-caption">3.jpg</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://img.buzzfeed.com/buzzfeed-static/static/2021-04/22/18/asset/8295a887a438/sub-buzz-705-1619117614-25.jpg?downsize=900:*&output-format=auto&output-quality=auto" alt="tarot cursed edition">
+      <div class="gallery-caption">4.jpeg</div>
+    </div>
+  </div>
+
   <p style="font-size:2.2rem; text-align:center; margin:4rem 0; color:#00ffff; text-shadow:0 0 30px #00ffff88;">
-    your move, coomer
+    peak internet. you're welcome.
   </p>
 </div>
 
