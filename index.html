@@ -256,12 +256,6 @@
       position: absolute;
       left: 0;
     }
-    .big-lenny {
-      font-size: 6rem;
-      text-align: center;
-      margin: 2rem 0;
-      color: white;
-    }
     .footer-joke {
       text-align: center;
       font-size: 0.9rem;
@@ -274,6 +268,27 @@
       right: 15px;
       opacity: 0.4;
       z-index: 999;
+    }
+    #audio-toggle {
+      position: fixed;
+      bottom: 15px;
+      right: 70px;
+      z-index: 999;
+      padding: 8px 14px;
+      background: #111111;
+      color: #ff4444;
+      border: 1px solid #444444;
+      border-radius: 4px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      opacity: 0.85;
+    }
+    #audio-toggle:hover {
+      opacity: 1;
+      background: #222222;
+      transform: scale(1.05);
     }
     @media (max-width: 800px) {
       .nav-inner { flex-wrap: wrap; }
@@ -295,6 +310,8 @@
       .warning-logo { width: 140px; height: 140px; }
       .warning-title { font-size: clamp(2.2rem, 9vw, 5rem); }
       .rooj-roast { font-size: 1.8rem; }
+      #audio-toggle { right: 15px; bottom: 60px; }
+      #bg-audio { bottom: 15px; right: 15px; }
     }
   </style>
 </head>
@@ -309,17 +326,18 @@
   go on all 4s on video and say KaiSoni .<br>
  Runs me 7X OTHER WISE ITS STAYING UP AND IF U DONT IM GONNA KEEP REUPLOADING IT ON SUB DOMAINS<3.<br><br>
     PRESS OK TO CONTINUE <br>
-   
+  
   </div>
   <button class="warning-btn" id="enter-btn">OK, I'M A WORTHLESS PIECE OF SHIT</button>
 </div>
 
 <div class="main-content" id="main">
-
-  <audio id="bg-audio" autoplay loop>
+  <audio id="bg-audio" loop>
     <source src="mand.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
+
+  <button id="audio-toggle" title="Toggle background audio">🔊 Playing</button>
 
   <div class="top-nav">
     <div class="nav-inner">
@@ -347,7 +365,6 @@
       • KYS is not a suggestion here, it's a public service<br><br>
       Enjoy rotting, you genetic failure.
     </p>
-
     <div class="dox-block">
 <strong>TARGET:</strong> Mand Kochary<br>
 <strong>Mom:</strong> Rooj Kochary<br>
@@ -368,11 +385,9 @@ WHIRLPOOL CORPORATION<br>
 <br>
 Your whole bloodline is cooked. KYS.
     </div>
-
     <a href="pass.txt" download="pass.txt" class="download-btn">
       Used Passwords
     </a>
-
     <div style="text-align: center; margin: 3rem 0; font-size: 5rem; color: #444;">
       KYS
     </div>
@@ -419,19 +434,31 @@ Your whole bloodline is cooked. KYS.
   <div class="footer-joke">
     certified 0% authentic • your mom agrees • kys certified
   </div>
-
 </div>
 
 <script>
+  let isAudioMuted = false;  // in-memory only — resets on page reload
+
+  // Enter main content
   document.getElementById('enter-btn').addEventListener('click', function() {
     document.getElementById('warning').style.display = 'none';
     document.getElementById('main').style.display = 'block';
     document.body.style.overflow = 'auto';
 
     const audio = document.getElementById('bg-audio');
-    audio.play().catch(() => {});
+    const toggleBtn = document.getElementById('audio-toggle');
+
+    if (isAudioMuted) {
+      audio.pause();
+      toggleBtn.textContent = '🔇 Muted';
+      toggleBtn.style.background = '#330000';
+    } else {
+      audio.play().catch(() => {});
+      toggleBtn.textContent = '🔊 Playing';
+    }
   });
 
+  // Tab switching
   const tabs = document.querySelectorAll('.tab');
   const contents = document.querySelectorAll('.content');
   tabs.forEach(tab => {
@@ -441,6 +468,24 @@ Your whole bloodline is cooked. KYS.
       contents.forEach(c => c.style.display = 'none');
       document.getElementById(tab.dataset.tab).style.display = 'block';
     });
+  });
+
+  // Audio toggle
+  const audio = document.getElementById('bg-audio');
+  const toggleBtn = document.getElementById('audio-toggle');
+
+  toggleBtn.addEventListener('click', () => {
+    if (audio.paused || audio.ended) {
+      audio.play().catch(() => {});
+      toggleBtn.textContent = '🔊 Playing';
+      toggleBtn.style.background = '#111111';
+      isAudioMuted = false;
+    } else {
+      audio.pause();
+      toggleBtn.textContent = '🔇 Muted';
+      toggleBtn.style.background = '#330000';
+      isAudioMuted = true;
+    }
   });
 </script>
 
