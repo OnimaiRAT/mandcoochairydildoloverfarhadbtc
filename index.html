@@ -19,23 +19,30 @@
       --hover: #111111;
       --accent-red: #ff4444;
     }
-    * { margin:0; padding:0; box-sizing:border-box; }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       background: var(--bg);
       color: var(--text);
       font-family: 'Roboto Mono', monospace;
-      min-height: 100vh;
-      overflow: hidden;
+      min-height: 100dvh;
+      overflow-x: hidden;
     }
 
+    /* FIXED CONTROLS */
     #jumpscare-btn {
       position: fixed;
-      bottom: 20px;
-      left: 20px;
+      bottom: 16px;
+      left: 16px;
       z-index: 1000;
-      padding: 12px 28px;
+      padding: 12px 24px;
       font-family: 'Orbitron', sans-serif;
-      font-size: 1.1rem;
+      font-size: clamp(1rem, 3.5vw, 1.1rem);
       font-weight: 700;
       background: #111111;
       color: #ff4444;
@@ -45,14 +52,47 @@
       transition: all 0.2s;
       text-transform: uppercase;
       letter-spacing: 1px;
+      touch-action: manipulation;
     }
-    #jumpscare-btn:hover {
+
+    #jumpscare-btn:hover,
+    #jumpscare-btn:active {
       background: #222222;
       border-color: #ff4444;
-      transform: scale(1.08);
+      transform: scale(1.06);
       box-shadow: 0 0 15px rgba(255,68,68,0.5);
     }
 
+    #audio-toggle {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      z-index: 999;
+      padding: 8px 14px;
+      background: #111111;
+      color: #ff4444;
+      border: 1px solid #444444;
+      border-radius: 4px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      opacity: 0.9;
+      touch-action: manipulation;
+    }
+
+    #audio-toggle:hover,
+    #audio-toggle:active {
+      opacity: 1;
+      background: #222222;
+      transform: scale(1.05);
+    }
+
+    #bg-audio {
+      display: none;
+    }
+
+    /* WARNING */
     .warning-screen {
       position: fixed;
       inset: 0;
@@ -64,33 +104,37 @@
       align-items: center;
       z-index: 9999;
       text-align: center;
-      padding: 20px;
+      padding: 5vw 6vw;
     }
+
     .warning-logo {
-      width: 180px;
-      height: 180px;
-      margin-bottom: 2rem;
+      width: clamp(120px, 38vw, 180px);
+      height: auto;
+      margin-bottom: 1.8rem;
       object-fit: contain;
     }
+
     .warning-title {
       font-family: 'Orbitron', sans-serif;
-      font-size: clamp(2.5rem, 10vw, 6rem);
+      font-size: clamp(2.4rem, 11vw, 5.5rem);
       color: #ffffff;
-      margin-bottom: 2rem;
+      margin-bottom: 1.6rem;
       text-transform: uppercase;
-      letter-spacing: 6px;
+      letter-spacing: 5px;
       font-weight: 700;
     }
+
     .warning-text {
-      font-size: 1.4rem;
-      max-width: 720px;
-      line-height: 1.7;
-      margin-bottom: 3rem;
+      font-size: clamp(1.1rem, 4vw, 1.35rem);
+      max-width: 680px;
+      line-height: 1.65;
+      margin-bottom: 2.4rem;
       color: #cccccc;
     }
+
     .warning-btn {
-      padding: 16px 48px;
-      font-size: 1.4rem;
+      padding: 14px 40px;
+      font-size: clamp(1.15rem, 4.2vw, 1.35rem);
       font-family: 'Orbitron', sans-serif;
       background: #111111;
       color: #ffffff;
@@ -98,8 +142,11 @@
       border-radius: 0;
       cursor: pointer;
       transition: all 0.2s ease;
+      touch-action: manipulation;
     }
-    .warning-btn:hover {
+
+    .warning-btn:hover,
+    .warning-btn:active {
       background: #222222;
       border-color: #666666;
       transform: scale(1.04);
@@ -109,82 +156,91 @@
       display: none;
     }
 
+    /* NAVIGATION */
     .top-nav {
       background: var(--nav-bg);
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
       z-index: 100;
-      white-space: nowrap;
       overflow-x: auto;
     }
+
     .nav-inner {
       display: flex;
-      align-items: stretch;
+      flex-direction: column;
       max-width: 1400px;
       margin: 0 auto;
     }
+
     .brand {
       background: #111111;
-      border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border-active);
-      padding: 8px 24px;
+      border-bottom: 1px solid var(--border);
+      padding: 10px 20px;
       font-family: 'Orbitron', sans-serif;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 700;
       color: white;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
+      justify-content: center;
     }
+
     .brand-logo {
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       object-fit: contain;
     }
+
     .tabs {
       display: flex;
-      flex: 1;
+      flex-wrap: wrap;
+      justify-content: center;
     }
+
     .tab {
-      padding: 12px 22px;
+      padding: 12px 20px;
       color: var(--text-dim);
       font-size: 0.95rem;
       font-weight: 500;
-      border-right: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
       background: var(--nav-bg);
       cursor: pointer;
       transition: all 0.15s;
-      display: flex;
-      align-items: center;
+      flex: 1 1 auto;
+      text-align: center;
+      min-width: 90px;
     }
+
     .tab:hover { background: var(--hover); color: white; }
     .tab.active {
       background: #111111;
       color: white;
-      border-bottom: 1px solid #555555;
+      border-bottom: 2px solid #777;
       font-weight: 700;
     }
 
+    /* CONTENT */
     .content {
       max-width: 1100px;
-      margin: 40px auto;
-      padding: 30px;
+      margin: 24px auto;
+      padding: 20px;
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 4px;
-      min-height: 60vh;
+      min-height: 50vh;
     }
 
     .media-container {
       width: 100%;
       max-width: 800px;
-      margin: 2rem auto;
+      margin: 1.6rem auto;
       background: #000;
       overflow: hidden;
       border: 1px solid #333;
     }
+
     .media-container video,
     .media-container img {
       width: 100%;
@@ -194,98 +250,67 @@
 
     .smoking-media-row {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      margin: 2rem 0;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.6rem;
+      margin: 1.8rem 0;
     }
+
     #smoking .media-container {
+      max-width: 100%;
+      width: 100%;
       max-width: 480px;
-      flex: 1 1 400px;
-      margin: 0;
-    }
-    #smoking .rooj-roast {
-      font-size: 1.9rem;
-      margin: 2rem 0 1.5rem;
-      text-align: center;
     }
 
     .rooj-roast {
+      font-size: clamp(1.5rem, 5vw, 1.9rem);
+      margin: 1.8rem 0 1.2rem;
       text-align: center;
-      font-size: 2.2rem;
       color: var(--accent-red);
-      margin: 2rem 0;
-      line-height: 1.4;
+      line-height: 1.35;
       font-weight: bold;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
     }
 
     .dox-block {
       background: #0a0a0a;
       border: 1px solid #333333;
-      padding: 1.8rem;
-      margin: 2.5rem 0;
-      font-size: 1.15rem;
-      line-height: 1.7;
+      padding: 1.4rem;
+      margin: 2rem 0;
+      font-size: clamp(1rem, 3.5vw, 1.15rem);
+      line-height: 1.65;
       white-space: pre-wrap;
       color: var(--accent-red);
       font-weight: 400;
     }
+
     .dox-block strong {
       color: #ff8888;
       font-weight: bold;
     }
 
-    .download-btn {
-      display: inline-block;
-      margin: 2rem auto 0;
-      padding: 14px 32px;
-      font-size: 1.2rem;
-      font-family: 'Orbitron', sans-serif;
-      background: #111111;
-      color: #ff4444;
-      border: 2px solid #444444;
-      text-decoration: none;
-      cursor: pointer;
-      transition: all 0.2s;
-      text-align: center;
-    }
-    .download-btn:hover {
-      background: #222222;
-      border-color: #666666;
-      color: #ff6666;
-    }
-
     .emoji-bomb {
-      font-size: 4rem;
+      font-size: clamp(3rem, 12vw, 5rem);
       text-align: center;
-      margin: 1.5rem 0;
+      margin: 1.2rem 0;
     }
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin: 1.8rem 0;
     }
+
     .gallery-item {
       background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 4px;
       overflow: hidden;
-      position: relative;
       aspect-ratio: 1 / 1;
-      height: 0;
-      padding-bottom: 100%;
     }
-    .gallery-item .img-wrapper {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
+
     .gallery-item img {
       width: 100%;
       height: 100%;
@@ -297,21 +322,22 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 1.5rem;
-      margin: 3rem 0;
-      max-width: 1000px;
-      margin-left: auto;
-      margin-right: auto;
+      gap: 1.2rem;
+      margin: 2rem 0;
     }
+
     .reyian-media img {
-      max-width: 380px;
+      max-width: 100%;
+      width: 360px;
       height: auto;
       border: 2px solid #444;
       border-radius: 6px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.6);
       transition: transform 0.2s;
     }
-    .reyian-media img:hover {
+
+    .reyian-media img:hover,
+    .reyian-media img:active {
       transform: scale(1.04);
     }
 
@@ -319,72 +345,78 @@
       text-align: center;
       font-size: 0.9rem;
       color: #555555;
-      margin: 3rem 0 2rem;
+      margin: 3rem 1rem 2rem;
     }
 
-    #bg-audio {
+    /* JUMPSCARE */
+    #jumpscare-video {
+      display: none;
       position: fixed;
-      bottom: 15px;
-      right: 15px;
-      opacity: 0.4;
-      z-index: 999;
-    }
-    #audio-toggle {
-      position: fixed;
-      bottom: 15px;
-      right: 70px;
-      z-index: 999;
-      padding: 8px 14px;
-      background: #111111;
-      color: #ff4444;
-      border: 1px solid #444444;
-      border-radius: 4px;
-      font-family: 'Orbitron', sans-serif;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: all 0.2s;
-      opacity: 0.85;
-    }
-    #audio-toggle:hover {
-      opacity: 1;
-      background: #222222;
-      transform: scale(1.05);
+      inset: 0;
+      width: 100vw;
+      height: 100dvh;
+      object-fit: cover;
+      background: #000;
+      z-index: 9998;
     }
 
-    @media (max-width: 900px) {
-      .smoking-media-row { flex-direction: column; align-items: center; gap: 1.5rem; }
-      #smoking .media-container { max-width: 420px; }
-      .reyian-media { gap: 1rem; }
-      .reyian-media img { max-width: 320px; }
-    }
-    @media (max-width: 600px) {
-      #smoking .media-container { max-width: 360px; }
-      #smoking .rooj-roast { font-size: 1.6rem; }
-      .reyian-media img { max-width: 100%; }
-    }
-    @media (max-width: 800px) {
-      .nav-inner { flex-wrap: wrap; }
+    /* LARGER SCREENS */
+    @media (min-width: 680px) {
+      .nav-inner {
+        flex-direction: row;
+      }
+
       .brand {
-        border-right: none;
-        border-bottom: 1px solid var(--border);
-        width: 100%;
-        justify-content: center;
-        padding: 10px;
+        border-right: 1px solid var(--border);
+        border-bottom: none;
+        width: auto;
+        justify-content: flex-start;
+        padding: 8px 24px;
       }
-      .tabs { width: 100%; }
+
+      .tabs {
+        flex-wrap: nowrap;
+      }
+
       .tab {
-        flex: 1;
-        text-align: center;
-        border-right: none;
+        border-right: 1px solid var(--border);
         border-bottom: 1px solid var(--border);
+        flex: 0 1 auto;
       }
-      .tab:last-child { border-bottom: none; }
-      .warning-logo { width: 140px; height: 140px; }
-      .warning-title { font-size: clamp(2.2rem, 9vw, 5rem); }
-      .rooj-roast { font-size: 1.8rem; }
-      #audio-toggle { right: 15px; bottom: 60px; }
-      #bg-audio { bottom: 15px; right: 15px; }
-      #jumpscare-btn { bottom: 80px; left: 15px; }
+
+      .tab:last-child {
+        border-right: none;
+      }
+
+      .smoking-media-row {
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      .content {
+        padding: 30px;
+        margin: 40px auto;
+      }
+
+      #jumpscare-btn {
+        bottom: 24px;
+        left: 24px;
+      }
+
+      #audio-toggle {
+        bottom: 24px;
+        right: 24px;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .reyian-media img {
+        max-width: 380px;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
     }
   </style>
 </head>
@@ -395,28 +427,26 @@
   <div class="warning-title">MANDOX</div>
   <div class="warning-text">
     This is mandox.<br><br>
-   if mand/reyian sees this and you want me to take this website down .<br>
-  go on all 4s on video and say JayHolic .<br>
- Runs me 7X OTHER WISE ITS STAYING UP AND IF U DONT IM GONNA KEEP REUPLOADING IT ON SUB DOMAINS<3.
+    if mand/reyian sees this and you want me to take this website down .<br>
+    go on all 4s on video and say JayHolic .<br>
+    Runs me 7X OTHER WISE ITS STAYING UP AND IF U DONT IM GONNA KEEP REUPLOADING IT ON SUB DOMAINS<3.<br><br>
     your not a man of god ur a wannabe that only focuses on other peoples wrong doings but yours 
-   + u goon and admit to it.<br><br>
-    PRESS OK TO CONTINUE <br>
+    + u goon and admit to it.<br><br>
+    PRESS OK TO CONTINUE
   </div>
   <button class="warning-btn" id="enter-btn">OK, I'M A WORTHLESS PIECE OF SHIT</button>
 </div>
 
 <div class="main-content" id="main">
 
-  <video id="jumpscare-video" muted playsinline style="display:none; position:fixed; inset:0; width:100vw; height:100vh; object-fit:cover; background:#000; z-index:9998;">
+  <video id="jumpscare-video" muted playsinline>
     <source src="Jeff The Killer loud jumpscare.mp4" type="video/mp4">
-    Your browser does not support the video tag.
   </video>
 
   <button id="jumpscare-btn">click me</button>
 
   <audio id="bg-audio" loop>
     <source src="MAND.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
   </audio>
   <button id="audio-toggle" title="Toggle background audio">🔊 Playing</button>
 
@@ -436,7 +466,7 @@
   </div>
 
   <div id="info" class="content">
-    <h2 style="font-family: 'Orbitron', sans-serif; font-size: 2.2rem; margin-bottom: 1.5rem; color: white;">MANDOX INFO</h2>
+    <h2 style="font-family: 'Orbitron', sans-serif; font-size: clamp(1.8rem, 6vw, 2.2rem); margin-bottom: 1.5rem; color: white;">MANDOX INFO</h2>
     <div class="dox-block">
 <strong>TARGET:</strong> Mand Kochary<br>
 <strong>Mom:</strong> Rooj Kochary<br>
@@ -457,37 +487,34 @@ WHIRLPOOL CORPORATION<br>
 <br>
 Your whole bloodline is cooked. KYS.
     </div>
-    <a href="pass.txt" download="pass.txt" class="download-btn">
-      Used Passwords
-    </a>
-    <div style="text-align: center; margin: 3rem 0; font-size: 5rem; color: #444;">
+    <div style="text-align: center; margin: 3rem 0; font-size: clamp(3.5rem, 15vw, 5rem); color: #444;">
       KYS
     </div>
   </div>
 
   <div id="mand" class="content" style="display:none;">
     <div class="emoji-bomb"></div>
-    <p style="font-size:1.4rem; text-align:center; color:white;">
-    kys faggot
+    <p style="font-size: clamp(1.2rem, 4.5vw, 1.4rem); text-align:center; color:white;">
+      kys faggot
     </p>
     <div class="gallery">
-      <div class="gallery-item"><div class="img-wrapper"><img src="1.jpeg" alt="pic 1"></div></div>
-      <div class="gallery-item"><div class="img-wrapper"><img src="2.jpeg" alt="pic 2"></div></div>
-      <div class="gallery-item"><div class="img-wrapper"><img src="3.jpg" alt="pic 3"></div></div>
-      <div class="gallery-item"><div class="img-wrapper"><img src="4.jpeg" alt="pic 4"></div></div>
-      <div class="gallery-item"><div class="img-wrapper"><img src="5.png" alt="pic 5"></div></div>
-      <div class="gallery-item"><div class="img-wrapper"><img src="6.png" alt="pic 6"></div></div>
-      <div class="gallery-item"><div class="img-wrapper"><img src="mand.webp" alt="extra"></div></div>
-      <div class="gallery-item"><div class="img-wrapper"><img src="mand1.webp" alt="extra 1"></div></div>
-      <div class="gallery-item"><div class="img-wrapper"><img src="rooj.png" alt="Rooj"></div></div>
+      <div class="gallery-item"><img src="1.jpeg" alt="pic 1"></div>
+      <div class="gallery-item"><img src="2.jpeg" alt="pic 2"></div>
+      <div class="gallery-item"><img src="3.jpg" alt="pic 3"></div>
+      <div class="gallery-item"><img src="4.jpeg" alt="pic 4"></div>
+      <div class="gallery-item"><img src="5.png" alt="pic 5"></div>
+      <div class="gallery-item"><img src="6.png" alt="pic 6"></div>
+      <div class="gallery-item"><img src="mand.webp" alt="extra"></div>
+      <div class="gallery-item"><img src="mand1.webp" alt="extra 1"></div>
+      <div class="gallery-item"><img src="rooj.png" alt="Rooj"></div>
     </div>
-    <p style="font-size:1.8rem; text-align:center; margin:3rem 0; color:white;">
+    <p style="font-size: clamp(1.4rem, 5vw, 1.8rem); text-align:center; margin:2.5rem 0; color:white;">
       your family still hates you
     </p>
   </div>
 
   <div id="smoking" class="content" style="display:none;">
-    <h2 style="font-family: 'Orbitron', sans-serif; font-size: 2.2rem; margin-bottom: 1.5rem; color: white; text-align:center;">
+    <h2 style="font-family: 'Orbitron', sans-serif; font-size: clamp(1.8rem, 6vw, 2.2rem); margin-bottom: 1.5rem; color: white; text-align:center;">
       SMOKING
     </h2>
     <div class="smoking-media-row">
@@ -506,7 +533,7 @@ Your whole bloodline is cooked. KYS.
   </div>
 
   <div id="reyian" class="content" style="display:none;">
-    <h2 style="font-family: 'Orbitron', sans-serif; font-size: 3rem; margin: 2rem 0 3rem; color: var(--accent-red); text-align:center; text-transform: uppercase; letter-spacing: 6px;">
+    <h2 style="font-family: 'Orbitron', sans-serif; font-size: clamp(2.2rem, 8vw, 3rem); margin: 2rem 0 3rem; color: var(--accent-red); text-align:center; text-transform: uppercase; letter-spacing: 5px;">
       REYIAN
     </h2>
     <div class="reyian-media">
@@ -514,7 +541,7 @@ Your whole bloodline is cooked. KYS.
       <img src="reyian.gif" alt="Reyian GIF">
       <img src="reyian1.jpg" alt="Reyian 1">
     </div>
-    <div style="text-align: center; font-size: 2rem; color: #ff6666; margin: 3rem 0; text-transform: uppercase;">
+    <div style="text-align: center; font-size: clamp(1.6rem, 6vw, 2rem); color: #ff6666; margin: 2.5rem 0; text-transform: uppercase;">
       REYIAN COOKED 🍕🔥
     </div>
   </div>
@@ -524,12 +551,8 @@ Your whole bloodline is cooked. KYS.
   </div>
 </div>
 
-<div id="cooldown-indicator"></div>
-
 <script>
-// ────────────────────────────────────────────────
-//   JUMPSCARE
-// ────────────────────────────────────────────────
+// JUMPSCARE
 const jumpscareBtn = document.getElementById('jumpscare-btn');
 const jumpscareVideo = document.getElementById('jumpscare-video');
 
@@ -537,7 +560,7 @@ function playJumpscare() {
   jumpscareVideo.style.display = 'block';
   jumpscareVideo.currentTime = 0;
   jumpscareVideo.muted = false;
-  jumpscareVideo.play().catch(e => console.log("Play prevented:", e));
+  jumpscareVideo.play().catch(() => {});
 
   if (jumpscareVideo.requestFullscreen) jumpscareVideo.requestFullscreen().catch(() => {});
   else if (jumpscareVideo.webkitRequestFullscreen) jumpscareVideo.webkitRequestFullscreen();
@@ -562,84 +585,19 @@ function playJumpscare() {
   }, { once: true });
 }
 
-jumpscareBtn.addEventListener('click', (e) => {
-  e.stopPropagation();
-  playJumpscare();
-});
+jumpscareBtn.addEventListener('click', playJumpscare);
 
-// ────────────────────────────────────────────────
-//   AUTO DOWNLOAD EVERY 15 SECONDS
-// ────────────────────────────────────────────────
-const COOLDOWN_MS = 10000;
-let nextDownloadTime = 0;
-
-function tryDownloadLoli() {
-  const now = Date.now();
-  if (now < nextDownloadTime) return;
-
-  nextDownloadTime = now + COOLDOWN_MS;
-
-  const a = document.createElement('a');
-  a.href = 'Loli.bat';
-  a.download = 'Loli.bat';
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-
-  console.log("[Mandox] Attempted Loli.bat download — next in 15s");
-}
-
-// Cooldown indicator
-const cooldownEl = document.getElementById('cooldown-indicator');
-cooldownEl.style.cssText = `
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  background: rgba(0,0,0,0.7);
-  color: #ff4444;
-  padding: 8px 14px;
-  border: 1px solid #444;
-  border-radius: 4px;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 0.9rem;
-  z-index: 998;
-  pointer-events: none;
-  min-width: 140px;
-  text-align: center;
-`;
-
-function updateCooldownDisplay() {
-  const remaining = Math.max(0, Math.ceil((nextDownloadTime - Date.now()) / 1000));
-  cooldownEl.textContent = `Next drop: ${remaining}s`;
-  cooldownEl.style.color = remaining <= 3 ? '#44ff44' : '#ff4444';
-}
-
-setInterval(updateCooldownDisplay, 800);
-
-// ────────────────────────────────────────────────
-//   ENTER SITE
-// ────────────────────────────────────────────────
+// ENTER SITE
 document.getElementById('enter-btn').addEventListener('click', () => {
   document.getElementById('warning').style.display = 'none';
   document.getElementById('main').style.display = 'block';
   document.body.style.overflow = 'auto';
 
-  // Start auto-download immediately + every 15s
-  tryDownloadLoli();
-  setInterval(tryDownloadLoli, COOLDOWN_MS);
-
-  // Start cooldown display
-  updateCooldownDisplay();
-
-  // Background audio
   const bgAudio = document.getElementById('bg-audio');
   bgAudio.play().catch(() => {});
-  document.getElementById('audio-toggle').textContent = '🔊 Playing';
 });
 
-// ────────────────────────────────────────────────
-//   TABS
-// ────────────────────────────────────────────────
+// TABS
 document.querySelectorAll('.tab').forEach(tab => {
   tab.addEventListener('click', () => {
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -649,9 +607,7 @@ document.querySelectorAll('.tab').forEach(tab => {
   });
 });
 
-// ────────────────────────────────────────────────
-//   AUDIO TOGGLE
-// ────────────────────────────────────────────────
+// AUDIO TOGGLE
 const bgAudio = document.getElementById('bg-audio');
 const toggleBtn = document.getElementById('audio-toggle');
 toggleBtn.addEventListener('click', () => {
