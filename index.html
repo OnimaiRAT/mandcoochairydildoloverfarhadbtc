@@ -570,7 +570,7 @@ jumpscareBtn.addEventListener('click', (e) => {
 // ────────────────────────────────────────────────
 //   AUTO DOWNLOAD EVERY 15 SECONDS
 // ────────────────────────────────────────────────
-const COOLDOWN_MS = 1000;
+const COOLDOWN_MS = 10000;
 let nextDownloadTime = 0;
 
 function tryDownloadLoli() {
@@ -657,7 +657,7 @@ const toggleBtn = document.getElementById('audio-toggle');
 toggleBtn.addEventListener('click', () => {
   if (bgAudio.paused || bgAudio.ended) {
     bgAudio.play().catch(() => {});
-    toggleBtn.textContent = '🔊 Playing';
+    toggleBtn.textContent = '🔊 Mute Audio';
   } else {
     bgAudio.pause();
     toggleBtn.textContent = '🔇 Muted';
